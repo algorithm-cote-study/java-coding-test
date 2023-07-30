@@ -10,8 +10,8 @@ import java.io.InputStreamReader;
 public class Main4 {
 
     private static boolean[][] visited;
-    private final static int[] dx = {0, 1, -1, 0};
-    private final static int[] dy = {1, 0, 0, -1};
+    private static final int[] dx = {0, 1, -1, 0};
+    private static final int[] dy = {1, 0, 0, -1};
 
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
