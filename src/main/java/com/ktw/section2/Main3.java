@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 /**
@@ -31,8 +32,8 @@ public class Main3 {
         }
 
         int answer = 0;
-        for (String key : map.keySet()) {
-            int amount = map.get(key);
+        for (Entry<String, Integer> object : map.entrySet()) {
+            int amount = map.get(object.getKey());
             if (!lines.contains(amount)) {
                 lines.add(amount);
             } else {
