@@ -30,6 +30,39 @@ class Main4Test {
         // when
         int solution = solution(reader);
         // then
-        assertEquals(4, solution);
+        assertEquals(11, solution);
+    }
+
+    @Test
+    @DisplayName("꽃이피는 최단시간 케이스3")
+    void test_case_3() throws Exception {
+        // given
+        BufferedReader reader = TestFileUtil.getReader(this.getClass(), "testcase/section5/main4/test_case3.txt");
+        // when
+        int solution = solution(reader);
+        // then
+        assertEquals(8, solution);
+    }
+
+    @Test
+    @DisplayName("꽃이피는 최단시간 케이스4")
+    void test_case_4() throws Exception {
+        // given
+        BufferedReader reader = TestFileUtil.getReader(this.getClass(), "testcase/section5/main4/test_case4.txt");
+        // when
+        int solution = solution(reader);
+        // then
+        assertEquals(54, solution);
+    }
+
+    @Test
+    @DisplayName("꽃이피는 최단시간 케이스5")
+    void test_case_5() throws Exception {
+        // given
+        BufferedReader reader = TestFileUtil.getReader(this.getClass(), "testcase/section5/main4/test_case5.txt");
+        // when
+        int solution = solution(reader);
+        // then
+        assertEquals(29, solution);
     }
 }
