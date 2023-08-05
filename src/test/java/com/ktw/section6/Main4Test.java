@@ -1,7 +1,7 @@
 package com.ktw.section6;
 
 import static com.ktw.section6.Main4.solution;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import com.ktw.common.TestFileUtil;
 import java.io.BufferedReader;
@@ -18,8 +18,8 @@ class Main4Test {
         // given
         BufferedReader reader = TestFileUtil.getReader(this.getClass(), "testcase/section6/main4/test_case1.txt");
         // when
-        String solution = solution(reader);
+        String[] solution = solution(reader);
         // then
-        assertEquals("baaaab aabbaa abaaba", solution);
+        assertArrayEquals(new String[]{"abaaba", "aabbaa", "baaaab"}, solution);
     }
 }
