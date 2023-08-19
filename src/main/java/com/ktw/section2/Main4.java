@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 음수가 있는 부분수열 (해싱 & 시간 파싱)
@@ -22,41 +24,18 @@ public class Main4 {
         int[] nums = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         int m = Integer.parseInt(reader.readLine());
         int answer = 0;
-        
-        int start = 0;
-        int end = 1;
-        int compare = nums[start];
-        while (true) {
-            if (compare == m) {
-                answer++;
-            }
-            if (end >= nums.length) {
-                start++;
-                end = start + 1;
-                if (end >= nums.length) {
-                    break;
-                }
-                compare = nums[start];
-            } else {
-                compare += nums[end];
-                end++;
-            }
-        }
 
-//        for (int i = 0; i < nums.length; i++) {
-//            int target = i + 1;
-//            int compare = nums[i];
-//            if (compare == m) {
-//                answer++;
-//            }
-//            while (target < nums.length) {
-//                compare += nums[target];
-//                if (compare == m) {
-//                    answer++;
-//                }
-//                target++;
-//            }
-//        }
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        map.put(0, 1);
+        for (int num : nums) {
+            sum += num;
+            int target = sum - m;
+            if (map.containsKey(target)) {
+                answer += map.get(target);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
 
         return answer;
     }
