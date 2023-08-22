@@ -20,49 +20,40 @@ public class Main2 {
     }
 
     static String solution(BufferedReader br) throws IOException {
-        String[] input = br.readLine().split("");
-
+        String s = br.readLine();
         Deque<String> stack = new ArrayDeque<>();
-
-        for (String s : input) {
-            if (!")".equals(s)) {
-                stack.push(s);
-            } else {
-
-                StringBuilder sb = new StringBuilder();
-                while (!stack.isEmpty() && !stack.peek().equals("(")) {
-                    sb.append(stack.pop());
-                }
-                stack.pop();
-                StringBuilder count = new StringBuilder();
-                try {
-                    while (!stack.isEmpty()) {
-                        Integer.parseInt(stack.peek());
-                        count.append(stack.pop());
+        for (char c : s.toCharArray()) {
+            if (c == ')') {
+                StringBuilder tmp = new StringBuilder();
+                while (!stack.isEmpty()) {
+                    String current = stack.pop();
+                    if (current.equals("(")) {
+                        String num = "";
+                        while (!stack.isEmpty() && Character.isDigit(stack.peek().charAt(0))) {
+                            num = stack.pop() + num;
+                        }
+                        StringBuilder res = new StringBuilder();
+                        int cnt = 0;
+                        if (num.equals("")) cnt = 1;
+                        else cnt = Integer.parseInt(num);
+                        for (int i = 0; i < cnt; i++) {
+                            res.append(tmp);
+                        }
+                        stack.push(res.toString());
+                        break;
                     }
-                } catch (NumberFormatException ignored) {
+                    tmp.insert(0, current);
                 }
-
-                if (count.length() == 0) {
-                    stack.push(sb.reverse().toString());
-                } else {
-                    stack.push(sb.reverse().toString().repeat(Integer.parseInt(count.reverse().toString())));
-                }
+            } else {
+                stack.push(String.valueOf(c));
             }
         }
 
-        String[] answer = new String[stack.size()];
-        int i = stack.size() - 1;
+        StringBuilder answer = new StringBuilder();
         while (!stack.isEmpty()) {
-            answer[i] = stack.pop();
-            i--;
+            answer.insert(0, stack.pop());
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (String a : answer) {
-            sb.append(a);
-        }
-
-        return sb.toString();
+        return answer.toString();
     }
 }
