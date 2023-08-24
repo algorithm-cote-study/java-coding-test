@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * 수열 찾기
+ * 6' 02"
  */
 public class Main2 {
 
