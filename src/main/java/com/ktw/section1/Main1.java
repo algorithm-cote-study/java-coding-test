@@ -10,7 +10,6 @@ import java.util.Arrays;
  */
 public class Main1 {
 
-
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println(solution(reader));
@@ -19,13 +18,13 @@ public class Main1 {
         }
     }
 
-    static String solution(BufferedReader reader) throws IOException {
+    public static String solution(BufferedReader reader) throws IOException {
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(reader.readLine());
 
         String[] students = new String[n + 1];
         for (int i = 1; i < n + 1; i++) {
-            char temp = (char) (i + 64);
+            char temp = (char)(i + 64);
             students[i] = String.valueOf(temp);
         }
         String input;
@@ -43,4 +42,5 @@ public class Main1 {
         sb.append(students[n]);
         return sb.toString();
     }
+
 }
