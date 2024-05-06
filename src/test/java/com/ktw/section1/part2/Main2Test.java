@@ -1,4 +1,4 @@
-package com.ktw.section1;
+package com.ktw.section1.part2;
 
 import com.ktw.common.TestFileUtil;
 import org.junit.jupiter.api.DisplayName;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 
-import static com.ktw.section1.Main2.solution;
+import static com.ktw.section1.part2.Main2.solution;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("청소")
