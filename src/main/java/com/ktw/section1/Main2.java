@@ -13,7 +13,6 @@ public class Main2 {
     private static final int[] dx = {1, 0, -1, 0};
     private static final int[] dy = {0, -1, 0, 1};
 
-
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println(solution(reader));
@@ -39,7 +38,7 @@ public class Main2 {
             int nx = x + dx[d];
             int ny = y + dy[d];
             if ((nx >= 0 && nx < n && ny >= 0 && ny < n) && map[nx][ny] == 0) {
-                map[nx][ny] = 1;
+                //                map[nx][ny] = 1;
                 x = nx;
                 y = ny;
             } else {
