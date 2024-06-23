@@ -14,8 +14,11 @@ class Solution {
         }
 
         Customer current = priorityQueue.poll();
-        int startTime = current.x;
+        if (current == null) {
+            return 0;
+        }
         int endTime = current.y;
+        int startTime = current.x;
         while (!priorityQueue.isEmpty()) {
             Customer target = priorityQueue.poll();
             //
